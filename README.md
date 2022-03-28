@@ -1,4 +1,5 @@
 # kimetsuStore-api
+[![Java CI with Maven](https://github.com/Kimetsu-Store/kimetsuStore-api/actions/workflows/maven.yml/badge.svg)](https://github.com/Kimetsu-Store/kimetsuStore-api/actions/workflows/maven.yml)
 # Iniciando o projeto
 ### Tecnologias
 #### 1. Java SDK 17 
