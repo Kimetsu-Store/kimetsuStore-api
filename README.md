@@ -1,5 +1,9 @@
 # kimetsuStore-api
-[![Java CI with Maven](https://github.com/Kimetsu-Store/kimetsuStore-api/actions/workflows/maven.yml/badge.svg)](https://github.com/Kimetsu-Store/kimetsuStore-api/actions/workflows/maven.yml)
+### Branch main
+[![Java CI Main](https://github.com/Kimetsu-Store/kimetsuStore-api/actions/workflows/maven.yml/badge.svg)](https://github.com/Kimetsu-Store/kimetsuStore-api/actions/workflows/maven.yml)
+### Branch desenvolvimento
+[![Java CI Desenvolvimeto](https://github.com/Kimetsu-Store/kimetsuStore-api/actions/workflows/desenvolvimento.yml/badge.svg?branch=desenvolvimento)](https://github.com/Kimetsu-Store/kimetsuStore-api/actions/workflows/desenvolvimento.yml)
+
 # Iniciando o projeto
 ### Tecnologias
 #### 1. Java SDK 17 
