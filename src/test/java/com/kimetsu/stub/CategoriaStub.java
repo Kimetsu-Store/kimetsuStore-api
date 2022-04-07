@@ -6,17 +6,19 @@ import com.kimetsu.dto.response.CategoriaResponse;
 
 public class CategoriaStub {
 
-    public static Categoria gerarCategoria() {
-        return Categoria.builder()
+    public static CategoriaResponse gerarCategoriaResponse() {
+        return CategoriaResponse.builder()
+                .id(1L)
                 .nome("Backend")
                 .descricao("Livros de backend")
                 .build();
     }
 
-    public static CategoriaResponse gerarCategoriaResponse() {
+    public static CategoriaResponse gerarCategoriaResponse(String texto) {
         return CategoriaResponse.builder()
+                .id(1L)
                 .nome("Backend")
-                .descricao("Livros de backend")
+                .descricao(texto)
                 .build();
     }
 
@@ -24,4 +26,11 @@ public class CategoriaStub {
         return new CategoriaRequest("Backend", "Livros de backend");
     }
 
+    public static Categoria gerarCategoriaComId() {
+        return Categoria.builder()
+                .nome("Backend")
+                .descricao("Livros de backend")
+                .id(1L)
+                .build();
+    }
 }

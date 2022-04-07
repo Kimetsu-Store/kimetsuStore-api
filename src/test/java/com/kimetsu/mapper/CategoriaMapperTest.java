@@ -19,7 +19,7 @@ class CategoriaMapperTest {
 
     @BeforeEach
     void inicializar() {
-        categoria = gerarCategoria();
+        categoria = gerarCategoriaComId();
         categoriaRequest = gerarCategoriaRequest();
         categoriaResponse = gerarCategoriaResponse();
         categoriaEsperada = Categoria.builder()
