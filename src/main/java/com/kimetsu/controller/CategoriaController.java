@@ -46,7 +46,7 @@ public class CategoriaController {
 
     @PutMapping("/categorias/{id}")
     public ResponseEntity<CategoriaResponse> atualizar(@Valid @RequestBody CategoriaRequest categoriaRequest,
-                                                           @PathVariable Long id) {
+                                                       @PathVariable Long id) {
         return new ResponseEntity<>(categoriaService.atualizar(categoriaRequest, id), HttpStatus.OK);
     }
 

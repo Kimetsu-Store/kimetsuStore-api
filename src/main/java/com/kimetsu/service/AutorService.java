@@ -11,6 +11,9 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import static com.kimetsu.mapper.AutorMapper.toAutor;
+import static com.kimetsu.mapper.AutorMapper.toAutorResponse;
+
 import java.util.List;
 
 @Service
@@ -27,27 +30,27 @@ public class AutorService {
     public AutorResponse salvar(AutorRequest autorRequestBody) {
         verificaSeNomeJaFoiCadastrado(autorRequestBody.getNome());
         Autor autor = toAutor(autorRequestBody);
-        return toAutorResponse(AutorRepositorio.save(autor));
+        return toAutorResponse(autorRepositorio.save(autor));
     }
 
     public AutorResponse buscaPorId(Long id) {
-        return toAutorResponse(AutorRepositorio.findById(id)
+        return toAutorResponse(autorRepositorio.findById(id)
                 .orElseThrow(() -> new NotFoundException("Autor não encontrado!")));
     }
 
     public List<AutorResponse> buscarTodos() {
-        return AutorRepositorio.findAll().stream().map(AutorMapper::toAutorResponse).toList();
+        return autorRepositorio.findAll().stream().map(AutorMapper::toAutorResponse).toList();
     }
 
     public AutorResponse buscaPorNome(String nome) {
-        return toAutorResponse(AutorRepositorio.findByNome(nome)
+        return toAutorResponse(autorRepositorio.findByNome(nome)
                 .orElseThrow(() -> new NotFoundException("Autor não encontrado!")));
     }
-    //cadastrar todas os atributos de autor
+
     @Transactional
     public AutorResponse atualizar(AutorRequest autorRequestBody, Long id) {
         AutorResponse autor = buscaPorId(id);
-        return toAutorResponse(AutorRepositorio.save(Autor.builder()
+        return toAutorResponse(autorRepositorio.save(Autor.builder()
                 .id(autor.getId())
                 .nome(autorRequestBody.getNome())
                 .descricao(autorRequestBody.getDescricao())

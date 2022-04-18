@@ -1,15 +1,20 @@
 package com.kimetsu.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Entity
+@EqualsAndHashCode
 public class Autor {
 
     @Id

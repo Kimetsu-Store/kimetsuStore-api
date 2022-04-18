@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin()
+@RequestMapping("/livraria")
+@RestController
 public class AutorController {
-
-    @CrossOrigin()
-    @RequestMapping("/livraria")
-    @RestController
-    public class Controller {
 
         private final AutorService autorService;
 
@@ -24,9 +22,15 @@ public class AutorController {
         public AutorController(AutorService autorService) {
             this.autorService = autorService;
         }
+        /*
+        public Controller(AutorService autorService) {
+            this.autorService = autorService;
+        }
+        */
+
 
         @PostMapping("/autores")
-        public ResponseEntity<AutorResponse> salvar(@Valid @RequestBody AutorRequest AutorRequest) {
+        public ResponseEntity<AutorResponse> salvar(@Valid @RequestBody AutorRequest autorRequest) {
             return new ResponseEntity<>(autorService.salvar(autorRequest), HttpStatus.CREATED);
         }
 
