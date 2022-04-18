@@ -2,6 +2,7 @@ package com.kimetsu.handler;
 
 import com.kimetsu.exception.NotFoundException;
 import com.kimetsu.exception.dto.NotFoundExceptionDetails;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 public class RestExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<NotFoundExceptionDetails> handlerNotFoundException(NotFoundException exception) {
+    public ResponseEntity<NotFoundExceptionDetails> handlerNotFoundException(ChangeSetPersister.NotFoundException exception) {
         return new ResponseEntity<>(
                 NotFoundExceptionDetails.builder()
                         .dataHora(LocalDateTime.now())
