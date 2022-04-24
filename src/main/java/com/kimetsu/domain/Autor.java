@@ -21,19 +21,18 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false, length = 25)
+    @Column(unique = true, nullable = false, length = 50)
     private String nome;
 
-    @Column(unique = true, nullable = false, length = 35)
-    @Pattern(regexp = ".+@.+\\\\.```a-z+")
+    @Column(unique = true, nullable = false, length = 250)
     private String email;
 
-    @Column(nullable= true, length = 200)
+    @Column(length = 2500)
     private String descricao;
 
-    @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
-    @Column(nullable=false)
-    private LocalDateTime dataCriacao;
-
+    @Builder.Default
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", shape = JsonFormat.Shape.STRING)
+    @Column(name = "data_de_criacao", nullable = false)
+    private LocalDateTime dataCriacao = LocalDateTime.now();
 
 }

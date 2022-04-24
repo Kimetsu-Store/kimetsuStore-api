@@ -114,7 +114,7 @@ class CategoriaControllerTest {
                         .content(envioComoJSON)
                         .accept(MediaType.APPLICATION_JSON_VALUE)
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isCreated());
     }
 
     @DisplayName("Teste POST/Error categoria Descrição inválida")

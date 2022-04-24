@@ -55,7 +55,6 @@ public class AutorService {
                 .nome(autorRequestBody.getNome())
                 .descricao(autorRequestBody.getDescricao())
                 .email(autorRequestBody.getEmail())
-                .dataCriacao(autorRequestBody.getDataCriacao())
                 .build()));
     }
 

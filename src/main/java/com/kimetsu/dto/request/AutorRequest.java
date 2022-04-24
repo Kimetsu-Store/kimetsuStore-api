@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -17,20 +15,18 @@ import java.time.LocalDateTime;
 public class AutorRequest {
 
     @NotEmpty(message = "Campo Nome inválido")
-    @Size(max = 25, message = "Campo nome Ultrapassou o limite de caracteres")
+    @Pattern(regexp = "[^\\d]+", message = "Campo Nome com caracteress inválido")
+    @Size(max = 50, message = "Campo nome Ultrapassou o limite de caracteres")
     private String nome;
 
     @NotNull(message = "Campo email inválido")
-    @Size(max = 35, message = "Campo email Ultrapassou o limite de caracteres")
+    @Email(message = "Campo Email inválido")
+    @Size(max = 250, message = "Campo Email Ultrapassou o limite de caracteres")
+    @Pattern(regexp = ".+@.+\\\\.```a-z+")
     private String email;
 
-    @NotNull(message = "Campo data da Criação inválido")
-    @Size(max=20, message = "Campo data da Criação Ultrapassou o limite de caracteres")
-    private LocalDateTime dataCriacao;
-
     @NotNull(message = "Campo Descrição inválido")
-    @Size(min=4, max = 200, message = "Campo descricao Ultrapassou o limite de caracteres")
+    @Size(min=4, max = 2500, message = "Campo descricao Ultrapassou o limite de caracteres")
     private String descricao;
-
 
 }
