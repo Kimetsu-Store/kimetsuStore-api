@@ -22,18 +22,11 @@ public class AutorController {
         public AutorController(AutorService autorService) {
             this.autorService = autorService;
         }
-        /*
-        public Controller(AutorService autorService) {
-            this.autorService = autorService;
-        }
-        */
-
 
         @PostMapping("/autores")
         public ResponseEntity<AutorResponse> salvar(@Valid @RequestBody AutorRequest autorRequest) {
             return new ResponseEntity<>(autorService.salvar(autorRequest), HttpStatus.CREATED);
         }
-
 
         @GetMapping("/autores/{id}")
         public ResponseEntity<AutorResponse> getPorId(@PathVariable Long id) {
@@ -61,6 +54,4 @@ public class AutorController {
             autorService.deletar(nome);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-
-
-    }
+}
