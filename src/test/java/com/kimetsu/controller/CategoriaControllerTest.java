@@ -103,23 +103,18 @@ class CategoriaControllerTest {
                 .andExpect(status().isBadRequest());
     }
 
-    @DisplayName("Teste POST/Sucesso categoria Descrição vazia")
+    @DisplayName("Teste POST/Erros categoria Descrição vazia")
     @Test
     @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = resetaDB)
-    public void testSalvaSucessoDescricaoVazia() throws Exception {
+    public void testSalvaDescricaoVazia() throws Exception {
         categoriaRequest.setDescricao("");
         envioComoJSON = mapper.writeValueAsString(categoriaRequest);
-
-        categoriaResponse = gerarCategoriaResponse("");
-
-        retornoComoJson = mapper.writeValueAsString(categoriaResponse);
 
         mockMvc.perform(post("/livraria/categorias")
                         .content(envioComoJSON)
                         .accept(MediaType.APPLICATION_JSON_VALUE)
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(content().json(retornoComoJson))
-                .andExpect(status().isCreated());
+                .andExpect(status().isBadRequest());
     }
 
     @DisplayName("Teste POST/Error categoria Descrição inválida")
