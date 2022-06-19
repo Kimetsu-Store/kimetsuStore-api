@@ -42,6 +42,7 @@ public class Livro {
     @Column(nullable = false, unique = true)
     private String isbn;
 
+    @Column(nullable = true)
     private LocalDate dataDePublicacao;
 
     @Column(nullable = false)
