@@ -18,10 +18,11 @@ public class AutorRequest {
     @Size(max = 50, message = "Campo nome Ultrapassou o limite de caracteres")
     private String nome;
 
+    //@Pattern(regexp = ".+@.+\\\\.```a-z+")
+    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$")
     @NotNull(message = "Campo email inválido")
     @Email(message = "Campo Email inválido")
     @Size(max = 250, message = "Campo Email Ultrapassou o limite de caracteres")
-    @Pattern(regexp = ".+@.+\\\\.```a-z+")
     private String email;
 
     @NotNull(message = "Campo Descrição inválido")
