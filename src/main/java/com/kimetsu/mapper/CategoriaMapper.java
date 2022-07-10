@@ -6,7 +6,7 @@ import com.kimetsu.dto.response.CategoriaResponse;
 
 public abstract class CategoriaMapper {
 
-    public static Categoria toCategoria(CategoriaRequest categoriaRequestBody) { //transformando o autorResquestBody em um autor;
+    public static Categoria toCategoria(CategoriaRequest categoriaRequestBody) {
         return Categoria.builder()
                 .nome(categoriaRequestBody.getNome())
                 .descricao(categoriaRequestBody.getDescricao())
