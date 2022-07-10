@@ -1,6 +1,5 @@
 package com.kimetsu.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.kimetsu.domain.Autor;
 import com.kimetsu.domain.Categoria;
 import com.kimetsu.domain.Livro;

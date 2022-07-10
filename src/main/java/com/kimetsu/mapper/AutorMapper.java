@@ -3,8 +3,6 @@ import com.kimetsu.domain.Autor;
 import com.kimetsu.dto.request.AutorRequest;
 import com.kimetsu.dto.response.AutorResponse;
 
-import java.time.LocalDateTime;
-
 public abstract class AutorMapper {
 
     public static Autor toAutor(AutorRequest autorRequestBody) {
