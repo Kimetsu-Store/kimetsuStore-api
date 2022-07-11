@@ -7,14 +7,12 @@ import javax.validation.constraints.*;
 @Data
 public class CompraRequest {
 
-    @NotEmpty(message = "Campo id do livro não pode ser vazio")
     @NotNull(message = "Campo id do livro não pode ser nulo")
     private Long idLivro;
 
-    @Size(min=1, max = 30, message = "Campo quantidade de livros inválido, valor deve ser entre 1 e 30")
+    @Min(1)
     private Integer quandidadeDeLivros;
 
-    @NotEmpty(message = "Campo Nome não pode ser vazio")
     @NotNull(message = "Campo nome não pode ser nulo")
     @Size(min=4, max = 250, message = "Campo nome Ultrapassou o limite de caracteres")
     private String nomeCliente;
@@ -32,7 +30,6 @@ public class CompraRequest {
 
     @NotNull(message = "Campo Descrição inválido")
     @Size(max = 250, message = "Campo rua Ultrapassou o limite de caracteres")
-    @NotNull
     private String rua;
 
     @Size(max = 250, message = "Campo bairro Ultrapassou o limite de caracteres")
@@ -52,7 +49,6 @@ public class CompraRequest {
     private String cep;
 
     @NotNull(message = "Campo numeroRua não foi informado")
-    @Size(min = 1, message = "Valor do número da rua deve ser maior que 1")
     private Integer numeroRua;
 
     @Size(max = 250, message = "Campo complemento Ultrapassou o limite de caracteres")
