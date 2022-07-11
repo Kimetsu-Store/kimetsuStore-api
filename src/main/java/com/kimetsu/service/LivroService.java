@@ -26,7 +26,7 @@ public class LivroService {
     private final AutorRepository autorRepository;
 
     @Autowired
-    public LivroService( LivroRepository repositorio, CategoriaRepository categoriaRepository, AutorRepository autorRepository) {
+    public LivroService(LivroRepository repositorio, CategoriaRepository categoriaRepository, AutorRepository autorRepository) {
         this.livroRepositorio = repositorio;
         this.categoriaRepository = categoriaRepository;
         this.autorRepository = autorRepository;
@@ -56,7 +56,7 @@ public class LivroService {
         return toLivroComAutorECategoriaResponse(livro);
     }
 
-    private Livro buscaLivroPorId(Long id) {
+    protected Livro buscaLivroPorId(Long id) {
         return livroRepositorio.findById(id)
                 .orElseThrow(() -> new NotFoundException("Livro não encontrado!"));
     }
