@@ -29,7 +29,7 @@ public class Compra {
     @Column(nullable = false, length = 12)
     private String cpf;
 
-    @Column(unique = true, nullable = false, length = 250)
+    @Column(nullable = false, length = 250)
     private String email;
 
     @Column(nullable = false)
