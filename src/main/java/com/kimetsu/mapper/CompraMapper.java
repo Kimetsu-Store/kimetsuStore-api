@@ -13,6 +13,7 @@ public abstract class CompraMapper {
 
     public static Compra toCompra(CompraRequest CompraRequestBody, Endereco endereco, Livro livro,  BigDecimal  valorTotalPedido ) {
         return Compra.builder()
+                .nomeCliente(CompraRequestBody.getNomeCliente())
                 .cpf(CompraRequestBody.getCpf())
                 .email(CompraRequestBody.getEmail())
                 .enderecoDeEntrega(endereco)
