@@ -12,7 +12,7 @@ import com.kimetsu.dto.response.LivroResponse;
 import org.springframework.data.domain.Page;
 
 public abstract class LivroMapper {
-
+    //converte um LivroDTO em Livro e depois manipula no banco
     public static Livro toLivro(LivroRequest livroRequestBody) {
         return Livro.builder()
                 .titulo(livroRequestBody.getTitulo())
