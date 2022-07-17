@@ -43,4 +43,8 @@ public class Compra {
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Endereco enderecoDeEntrega;
 
+    @Builder.Default
+    @Column
+    private SatatusCompra status = SatatusCompra.AGUARDANDO_ENVIO;
+
 }

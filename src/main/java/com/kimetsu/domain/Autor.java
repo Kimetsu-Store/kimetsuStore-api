@@ -29,7 +29,7 @@ public class Autor {
     private String descricao;
 
     @Builder.Default
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", shape = JsonFormat.Shape.STRING)
+    @JsonFormat(pattern = "yyyy/mm/dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
     @Column(name = "data_de_criacao", nullable = false)
     private LocalDateTime dataCriacao = LocalDateTime.now();
 
