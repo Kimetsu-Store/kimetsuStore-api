@@ -1,4 +1,5 @@
  insert into categoria (nome, descricao)
+
  values
  ('Programação', 'Lógica, Java, .NET, PHP, Games, OO, Funcional, Python, Outros'),
  ('Mobile', 'iOS, Android, Multiplataforma, Outros'),
@@ -139,3 +140,4 @@
  'Acessibilidade na Web consiste na eliminação de barreiras de acesso em páginas e aplicações digitais para que pessoas com deficiência tenham autonomia na rede. Na verdade, acessibilidade na web beneficia todas as pessoas. Em algum momento da vida todos podem precisar de acessibilidade, seja devido a uma limitação temporária ou permanente. Quando não levamos em consideração o acesso de pessoas com deficiência, estamos tirando o direito de uma pessoa de navegar, interagir ou consumir produtos e serviços na rede. Empatia é o fator principal para que as aplicações que desenvolvemos sejam inclusivas. Neste livro, Reinaldo Ferraz aborda o tema da acessibilidade na Web, desde os conceitos básicos, até as especificidades relativas aos seus diversos públicos, com uma introdução sobre as várias diretrizes e leis existentes. Você conhecerá as barreiras de acesso que temos de derrubar e quais as principais orientações para implementação, manutenção, avaliação, correção e divulgação, até as mais recentes e refinadas técnicas de acessibilidade para a rede.',
  'Sumario', 49.90, 266, 9786586110166, '2020-04-30',
  'http://books.google.com/books/content?id=pCbhDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', 3);
+
