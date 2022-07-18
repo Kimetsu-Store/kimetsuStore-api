@@ -1,5 +1,6 @@
 package com.kimetsu.dto.request;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.hibernate.validator.constraints.ISBN;
 
@@ -41,15 +42,21 @@ public class LivroRequest {
     @Size(max = 21, message = "Campo Isbn Ultrapassou o limite de caracteres")
     @NotNull(message = "Campo Isbn inválido")
     @ISBN(type = ISBN.Type.ANY)
+    @Schema(description = "ISBN 13 digitos", example = "9788543105291", required = true)
     private String isbn;
 
     @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     @NotNull(message = "Campo Datas inválido")
+    @Schema(description = "Data Criação da primeira publicação", example = "2022-03-30", required = true)
     private LocalDate dataDePublicacao;
 
     @NotEmpty(message = "Campo Capa inválido")
+    @Schema(description = "URL da imagem da capa",
+            example = "http://books.google.com/books/content?id=pCbhDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+            required = true)
     private String capa;
 
     @NotNull(message = "Campo Estoque inválido")
+    @Schema(description = "Quantidade deve ser > ZERO < 100", example = "100", required = true)
     private int estoque;
 }
