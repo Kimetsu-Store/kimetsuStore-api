@@ -1,6 +1,7 @@
 package com.kimetsu.dto.response;
 
 import com.kimetsu.domain.Endereco;
+import com.kimetsu.domain.SatatusCompra;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -22,5 +23,5 @@ public class CompraResponse {
         private String NomeDoLivro;
         private EnderecoResponse endereco;
         private BigDecimal valorDoPedido;
-
+        private SatatusCompra status;
 }

@@ -39,6 +39,7 @@ public abstract class CompraMapper {
                 .dataPedido(compra.getDataDoPedido())
                 .valorDoPedido(compra.getValorTotalDoPedido())
                 .quandidadeDeLivros(compra.getQuandidadeDeLivros())
+                .status(compra.getStatus())
                 .build();
     }
 

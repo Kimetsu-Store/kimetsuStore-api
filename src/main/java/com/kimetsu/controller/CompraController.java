@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @CrossOrigin()
 @RequestMapping("/livraria")
@@ -27,5 +28,14 @@ public class CompraController {
         return new ResponseEntity<>(service.salvar(compraRequest), HttpStatus.CREATED);
     }
 
+    @GetMapping("/compras")
+    public ResponseEntity<List<CompraResponse>> buscarTodos() {
+        return new ResponseEntity<>(service.buscarTodos(), HttpStatus.OK);
+    }
+
+    @GetMapping("/compras/{id}")
+    public ResponseEntity<CompraResponse> getPorId(@PathVariable Long id) {
+        return new ResponseEntity<>(service.buscaPorId(id), HttpStatus.OK);
+    }
 
 }

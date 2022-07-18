@@ -5,13 +5,16 @@ import com.kimetsu.domain.Endereco;
 import com.kimetsu.domain.Livro;
 import com.kimetsu.dto.request.CompraRequest;
 import com.kimetsu.dto.response.CompraResponse;
+import com.kimetsu.exception.NotFoundException;
 import com.kimetsu.infra.CompraRepository;
 import com.kimetsu.infra.EnderecoRepository;
+import com.kimetsu.mapper.CompraMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
+import java.util.List;
 
 import static com.kimetsu.mapper.CompraMapper.toCompra;
 import static com.kimetsu.mapper.CompraMapper.toResponse;
@@ -33,8 +36,10 @@ public class CompraService {
         this.enderecoRepository = enderecoRepository;
     }
 
+
+
     @Transactional
-    public CompraResponse salvar(CompraRequest request) {
+    public CompraResponse salvar(CompraRequest request) throws RuntimeException {
 
         final Livro livro = livroService.buscaLivroPorId(request.getIdLivro());
 
@@ -45,16 +50,15 @@ public class CompraService {
             return toResponse(compraRepository.save(compra));
 
         } catch (RuntimeException e) {
-            new Exception("Erro Interno da API, Verifique os dados repassados para serem salvos", e);
+            throw  new RuntimeException("Erro Interno da API, Verifique os dados repassados para serem salvos", e);
         }
-        return null;
     }
 
     private BigDecimal calcularValorDaCopra(BigDecimal valorUnitario, Integer quantidade) {
         return valorUnitario.multiply(BigDecimal.valueOf(quantidade));
     }
 
-    private Endereco salvarEndereco(CompraRequest request) throws RuntimeException {
+    private Endereco salvarEndereco(CompraRequest request) {
         Endereco endereco = Endereco.builder()
                 .bairro(request.getBairro())
                 .cep(request.getCep())
@@ -68,4 +72,12 @@ public class CompraService {
         return enderecoRepository.save(endereco);
     }
 
+    public List<CompraResponse> buscarTodos() {
+        return compraRepository.findAll().stream().map(CompraMapper::toResponse).toList();
+    }
+
+    public CompraResponse buscaPorId(Long id) {
+        return toResponse(compraRepository.findById(id).orElseThrow(
+                () -> new NotFoundException("Compra não econtrada ou não existe!")));
+    }
 }

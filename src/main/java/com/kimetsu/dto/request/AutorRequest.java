@@ -1,5 +1,6 @@
 package com.kimetsu.dto.request;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class AutorRequest {
     @NotNull(message = "Campo email inválido")
     @Email(message = "Campo Email inválido")
     @Size(max = 250, message = "Campo Email Ultrapassou o limite de caracteres")
+    @Schema(description = "Número máx 250 caracteres", example = "teste@yahoo.com.br", required = true)
     private String email;
 
     @NotNull(message = "Campo Descrição inválido")
